@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image Scraper{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Image Scraper</h1>
+        <form action="{{ path('scrape') }}" method="post" class="">
+            <label for="url" class="form-label">Enter URL:</label>
+            <input type="text" id="url" name="url" class="form-control" required>
+            <button class="btn btn-primary mt-3" type="submit">Go</button>
+        </form>
+    </div>
+{% endblock %}

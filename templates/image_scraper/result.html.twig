@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scrape Results{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Scrape Results</h1>
+        <div class="image-grid">
+            {% for image in images %}
+                <div class="image-item">
+                    <img src="{{ image.url }}" alt="Image">
+                    <p>Размер: {{ image.size }} байт</p>
+                </div>
+            {% endfor %}
+        </div>
+        <p>Всего найдено {{ totalImages }} изображений с общим объёмом {{ totalSize }} MB</p>
+        <a href="{{ path('index') }}">Back</a>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .image-item {
+            text-align: center;
+        }
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+{% endblock %}
+
+
